@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Carousel UI demo page</title>
+        <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        <link rel="stylesheet" type="text/css" href="css/carousel.css">
+        <link rel="stylesheet" type="text/css" href="css/styles.css">
+        <script type="text/javascript" scr="js/carousel.js"></script>
+    </head>
+    <body>
+        <h1>Carousel Demo Page</h1>
+        <div id="myCarousel1"></div>
+        <div id="myCarousel2"></div>
+        <script type="text/javascript">
+            const options1 = {
+                container: 'myCarousel1',
+                icon: 'collections',
+                title: 'Fresh and just uploaded content',
+                subtitle: 'Lorem ipsum dolor sit amet',
+                fetchCards: function(chunkSize) {
+                    /*function that returns "chunkSize" card objects to be 
+                    displayed in the carousel. Each card object is structured 
+                    as follows: */
+                    return {
+                        image: 'https://...', //url or random image from web
+                        type: 'video', /*a string with following allowed values
+                        (video, playlist, news, other)*/
+                        duration: 3600, //in number of seconds
+                        title: 'Just a title',
+                        cardinality: 'single' /*if this card is single 
+                        or a group of. Allowed values: 'single', 
+                        'collection'*/
+
+
+                    }
+                }
+            };
+            const carousel1 = new Carousel(options1);
+        </script>
+        <script type="text/javascript">
+            const options2 = {
+                container: 'myCarousel2',
+                icon: 'event_seat',
+                title: 'Another carousel instance title',
+                subtitle: 'Phasellus egestas at diam ut viverra.',
+                fetchCards: function(chunkSize) {
+                    return {
+                        image: 'https://...', //url or random image from web
+                        type: 'video', /*a string with following allowed values
+                        (video, playlist, news, other)*/
+                        duration: 3600, //in number of seconds
+                        title: 'Just a title',
+                        cardinality: 'single' /*if this card is single 
+                        or a group of. Allowed values: 'single', 
+                        'collection'*/
+
+
+                    }
+                }
+            };
+            const carousel2 = new Carousel(options2);
+        </script>
+    </body>
+</html>
