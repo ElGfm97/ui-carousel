@@ -51,9 +51,13 @@ class Carousel {
       title.classList.add("card-title");
       cardContainer.appendChild(title);
       this.cardsContainer.appendChild(cardContainer);
-      /* if(card.cardinality === 'collection') {
-
-       } */
+      if(card.cardinality === 'collection') {
+          let collection = document.createElement("span");
+          collection.classList.add("material-icons");
+          collection.classList.add("collection-icon");
+          collection.innerText = "collections";
+          cardContainer.appendChild(collection);
+       }
 
     });
     for(let i=this.chunkSize; i<this.totalSize; i++) {

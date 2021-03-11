@@ -44,7 +44,7 @@
 }
 
 .card-title {
-  margin: 20px 10px 50px 10px;
+  margin: 20px 10px 30px 10px;
 }
 
 .scroll-left {
@@ -92,6 +92,15 @@
   font-family: "Montserrat", sans-serif;
   margin-left: 10px;
   margin-top: 50px;
+}
+
+.carousel-icon, .collection-icon {
+  color: darkgray;
+}
+
+.collection-icon {
+  float: right;
+  top: 0;
 }
 
 /*# sourceMappingURL=carousel.css.map */
