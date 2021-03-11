@@ -72,6 +72,23 @@ class Carousel {
   }
 
   async onInit() {
+    let titleContainer = document.createElement("div");
+    titleContainer.classList.add("title-container");
+    let icon = document.createElement("span");
+    icon.classList.add("carousel-icon");
+    icon.classList.add("material-icons");
+    icon.innerHTML = this.icon;
+    titleContainer.appendChild(icon);
+    let title = document.createElement("h3");
+    title.classList.add("carousel-title");
+    title.innerText = this.title;
+    titleContainer.appendChild(title);
+    let subtitle = document.createElement("p");
+    subtitle.classList.add("carousel-subtitle");
+    subtitle.innerText = this.subtitle;
+    titleContainer.appendChild(subtitle);
+    document.getElementById(this.container).appendChild(titleContainer);
+
     this.cardsContainer = document.createElement("div");
     this.cardsContainer.classList.add("cards-container");
     document.getElementById(this.container).appendChild(this.cardsContainer);
