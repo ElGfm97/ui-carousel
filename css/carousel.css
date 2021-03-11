@@ -17,7 +17,7 @@
   border: 1px solid darkgrey;
   scroll-snap-align: start; }
 
-.inner-container {
+.image-wrapper {
   margin: 0 0 10px 0;
   padding: 0;
   height: 185px;
