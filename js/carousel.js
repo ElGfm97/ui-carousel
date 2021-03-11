@@ -43,7 +43,7 @@ class Carousel {
       type.classList.add("type");
       innerContainer.appendChild(type);
       let duration = document.createElement("p");
-      duration.innerText = card.duration;
+      duration.innerText = this.renderDuration(card.duration);
       duration.classList.add("duration");
       innerContainer.appendChild(duration);
       let title = document.createElement("p");
@@ -62,6 +62,13 @@ class Carousel {
       this.cardsContainer.appendChild(emptyCard);
     }
 
+  }
+
+  renderDuration(duration) {
+    let date = new Date(0);
+    date.setSeconds(duration); // specify value for SECONDS here
+    let timeString = date.toISOString().substr(11, 8);
+    return timeString;
   }
 
   async onInit() {
@@ -103,4 +110,3 @@ class Carousel {
 
 }
 
-//Carousel.chunkSize = 6;
