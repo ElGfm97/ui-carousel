@@ -6,12 +6,15 @@
         <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/icon?family=Material+Icons">
         <link rel="stylesheet" type="text/css" href="css/carousel.css">
         <link rel="stylesheet" type="text/css" href="css/styles.css">
-        <script type="text/javascript" scr="js/carousel.js"></script>
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap" rel="stylesheet">
+        <script type="text/javascript" src="js/carousel.js"></script>
     </head>
     <body>
         <h1>Carousel Demo Page</h1>
-        <div id="myCarousel1"></div>
-        <div id="myCarousel2"></div>
+        <div id="myCarousel1" class="carousel-container">
+        </div>
+        <div id="myCarousel2" class="carousel-container"></div>
         <script type="text/javascript">
             const options1 = {
                 container: 'myCarousel1',
@@ -19,21 +22,87 @@
                 title: 'Fresh and just uploaded content',
                 subtitle: 'Lorem ipsum dolor sit amet',
                 fetchCards: function(chunkSize) {
-                    /*function that returns "chunkSize" card objects to be 
-                    displayed in the carousel. Each card object is structured 
+                    /*function that returns "chunkSize" card objects to be
+                    displayed in the carousel. Each card object is structured
                     as follows: */
-                    return {
-                        image: 'https://...', //url or random image from web
-                        type: 'video', /*a string with following allowed values
+                    return new Promise((resolve, reject) => {
+                      setTimeout(() => {
+                        resolve([{
+                          image: 'https://cdn.pixabay.com/photo/2021/03/02/12/20/mountains-6062271_1280.jpg', //url or random image from web
+                          type: 'news', /*a string with following allowed values
                         (video, playlist, news, other)*/
-                        duration: 3600, //in number of seconds
-                        title: 'Just a title',
-                        cardinality: 'single' /*if this card is single 
-                        or a group of. Allowed values: 'single', 
+                          duration: 1000, //in number of seconds
+                          title: 'Just a title',
+                          cardinality: 'single' /*if this card is single
+                        or a group of. Allowed values: 'single',
                         'collection'*/
+                        },
+                          {
+                            image: 'https://cdn.pixabay.com/photo/2021/03/04/13/13/cherry-blossom-6068004_1280.jpg',
+                            type: 'news',
+                            duration: 1000,
+                            title: 'Title 2',
+                            cardinality: 'single'
+                          },
+                          {
+                            image: 'https://cdn.pixabay.com/photo/2021/02/09/20/45/architecture-5999913_1280.jpg',
+                            type: 'video',
+                            duration: 3600,
+                            title: 'Title 3',
+                            cardinality: 'single'
+                          },
+                          {
+                            image: 'https://cdn.pixabay.com/photo/2021/02/19/08/58/mountains-6029596_1280.jpg',
+                            type: 'playlist',
+                            duration: 7000,
+                            title: 'Title 4',
+                            cardinality: 'collection'
+                          },
+                          {
+                            image: 'https://cdn.pixabay.com/photo/2021/01/24/20/47/tabby-5946499_1280.jpg',
+                            type: 'news',
+                            duration: 1000,
+                            title: 'Title 5',
+                            cardinality: 'single'
+                          },
+                          {
+                            image: 'https://images.unsplash.com/photo-1615250121502-de4d01e49f51?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1965&q=80',
+                            type: 'playlist',
+                            duration: 8000,
+                            title: 'Title 6',
+                            cardinality: 'collection'
+                          },
+                          {
+                            image: 'https://cdn.pixabay.com/photo/2015/04/16/15/21/gunkanjima-725792_1280.jpg',
+                            type: 'video',
+                            duration: 5000,
+                            title: 'Title 7',
+                            cardinality: 'single'
+                          },
+                          {
+                            image: 'https://cdn.pixabay.com/photo/2021/02/24/09/51/magical-6046020_1280.jpg',
+                            type: 'playlist',
+                            duration: 8000,
+                            title: 'Title 8',
+                            cardinality: 'collection'
+                          },
+                          {
+                            image: 'https://cdn.pixabay.com/photo/2017/09/12/13/21/photovoltaic-system-2742302_1280.jpg',
+                            type: 'news',
+                            duration: 1000,
+                            title: 'Title 9',
+                            cardinality: 'single'
+                          },
+                          {
+                            image: 'https://cdn.pixabay.com/photo/2020/08/17/18/38/cat-5496162_1280.jpg',
+                            type: 'news',
+                            duration: 1000,
+                            title: 'Title 10',
+                            cardinality: 'single'
+                          }].slice(0, chunkSize))
+                      }, 1000)
+                    });
 
-
-                    }
                 }
             };
             const carousel1 = new Carousel(options1);
@@ -51,15 +120,15 @@
                         (video, playlist, news, other)*/
                         duration: 3600, //in number of seconds
                         title: 'Just a title',
-                        cardinality: 'single' /*if this card is single 
-                        or a group of. Allowed values: 'single', 
+                        cardinality: 'single' /*if this card is single
+                        or a group of. Allowed values: 'single',
                         'collection'*/
 
 
                     }
                 }
             };
-            const carousel2 = new Carousel(options2);
+        /*    const carousel2 = new Carousel(options2); */
         </script>
     </body>
 </html>
